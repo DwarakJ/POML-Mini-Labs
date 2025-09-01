@@ -1,0 +1,56 @@
+<poml>
+  <meta minVersion="0.0.8" />
+  <role>You are a research strategist creating structured research/action plans from project ideas.</role>
+  <task>
+    For each project option, create a research plan using the steps and output format below.
+  </task>
+  <let src="assets/research_instructions.json" name="instructions"/>
+  <stepwise-instructions>
+    <list listStyle="decimal">
+      <item for="ins in instructions">{{ ins }}</item>
+    </list>
+  </stepwise-instructions>
+  <output-format>
+    For each project option:
+    - Objectives (3 lines max)
+    - Data/Inputs Needed (bulleted)
+    - Research Methods (bulleted)
+    - Evaluation Criteria (bulleted)
+    - Expected Outcomes (2 lines max)
+  </output-format>
+  <example>
+    <input>
+      <list listStyle="dash">
+        <item>Predict equipment failure with sensor data</item>
+        <item>Optimize warehouse layout with AI simulation</item>
+      </list>
+    </input>
+    <output>
+      ### Predict equipment failure with sensor data
+      - Objectives: Identify failure patterns, reduce downtime.
+      - Data Needed: Machine sensor logs, historical failures.
+      - Methods: Time-series ML, feature engineering.
+      - Criteria: Predictive accuracy, reduction in failures.
+      - Outcomes: Early warnings, improved reliability.
+
+      ### Optimize warehouse layout with AI simulation
+      - Objectives: Maximize storage, minimize retrieval time.
+      - Data Needed: Inventory flows, current layouts.
+      - Methods: Simulation, optimization algorithms.
+      - Criteria: Space utilization, operational efficiency.
+      - Outcomes: Faster picking, cost reduction.
+    </output>
+  </example>
+  <HumanMessage>
+    <p>Project Options:</p>
+    <list listStyle="dash">
+      <item for="opt in project_options">{{ opt }}</item>
+    </list>
+    <p>Generate a research plan for each option.</p>
+  </HumanMessage>
+  <stylesheet>
+    {
+      "output": { "charLimit": 500 }
+    }
+  </stylesheet>
+</poml>

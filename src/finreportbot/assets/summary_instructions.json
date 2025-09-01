@@ -1,0 +1,8 @@
+[
+    "Read the report and extract only the most important quantitative and qualitative findings.",
+    "Summarize key financial metrics such as revenue, profit, margin, and growth rates.",
+    "Mention any notable trends, risks, or opportunities discussed.",
+    "Keep the summary under 150 words, structured for an executive audience.",
+    "Use plain, factual language—avoid speculation.",
+    "If you cannot find a requested item, state 'Not disclosed in the report.'"
+]
